@@ -25,6 +25,7 @@ The main application of our research is intended for autonomous driving vehicles
 ## Table of Contentes <!-- omit in toc -->
 
 - [Running the code](#running-the-code)
+  - [0) Requirements](#0-requirements)
   - [1) Datasets](#1-datasets)
   - [2) Converting from `.bin` to `.ply`](#2-converting-from-bin-to-ply)
   - [3) Runing the `puma` pipeline](#3-runing-the-puma-pipeline)
@@ -34,18 +35,23 @@ The main application of our research is intended for autonomous driving vehicles
 
 ## Running the code
 
-If you don't want to use docker and install `puma` locally you might want to
-visit the [Installation Instructions](./INSTALL.md)
-
 **NOTE:** All the commands assume you are working on this shared worksspace,
 therefore, first `cd apps/` before running anything.
+
+### 0) Requirements
+
+If you plan to use our [docker](docker/README.md) container you only need to
+install [docker][docker] and [docker-compose][compose].
+
+If you **don't want to use docker** and install `puma` locally you might want
+to visit the [Installation Instructions](./INSTALL.md)
 
 ### 1) Datasets
 
 First you need to indicate where are all your datasets, for doing so just:
 
 ```sh
-export DATASETS=<full-path-to-dataset-locations>
+export DATASETS=<full-path-to-datasets-location>
 ```
 
 This env variable is shared between the docker container and your host
@@ -182,3 +188,5 @@ year      = 2021,
 [open3d]: http://www.open3d.org/
 [meshlab]: https://www.meshlab.net/
 [cloudcompare]: https://www.danielgm.net/cc/
+[compose]: https://docs.docker.com/compose/install/
+[docker]: https://docs.docker.com/get-docker/
