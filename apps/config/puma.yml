@@ -1,0 +1,25 @@
+# ICP params
+threshold: 1.0
+method: p2l
+warm_start: true
+acc_frame_count: 30
+strategy: raycasting # sample
+loss: huber
+
+# Mapping
+depth: 10
+min_density: 0.1
+n_threads: -1
+acc_map_count: 30
+
+# Pre Processing
+downsample: false
+normals: range_image
+voxel_size: 0.25
+max_nn: 20
+W: 1024
+H: 64
+
+# misc
+out_dir: results/
+debug: false

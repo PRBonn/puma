@@ -1,0 +1,19 @@
+version: "3.4"
+services:
+  builder:
+    image: ignaciovizzo/puma:latest
+    build:
+      context: .
+      dockerfile: docker/builder/Dockerfile
+      target: builder
+  apps:
+    build:
+      context: .
+      dockerfile: docker/apps/Dockerfile
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+    working_dir: /apps
+    volumes:
+      - ./apps/:/apps:rw
+      - ${DATASETS}:/data:ro

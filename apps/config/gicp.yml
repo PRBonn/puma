@@ -1,0 +1,18 @@
+# ICP params
+threshold: 1.0
+method: gicp
+warm_start: true
+acc_frame_count: 30
+loss: L2
+
+# Processing
+downsample: true
+normals: false # false, range_image, kdtree
+voxel_size: 0.25
+max_nn: 20
+W: 1024
+H: 64
+
+# misc
+out_dir: results/
+debug: false
