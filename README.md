@@ -71,11 +71,13 @@ this repo.
 ```sh
 docker-compose run --rm apps bash -c '\
     ./data_conversion/bin2ply.py \
-    --dataset $DATASETS/kitti-odometry/dataset/ \ # <-- path to where you have the kitti dataset
+    --dataset $DATASETS/kitti-odometry/dataset/ \
     --out_dir ./data/kitti-odometry/ply/ \
     --sequence 07
     '
 ```
+Please change the `--dataset` option to point to where you have the KITTI
+dataset.
 
 ### 3) Runing the `puma` pipeline
 
