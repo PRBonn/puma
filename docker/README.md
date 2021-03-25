@@ -1,11 +1,8 @@
 # Docker containers
 
-After trying multiple scenarios of the [docker multistage
-builds](https://docs.docker.com/develop/develop-images/multistage-build) and
-tired because nothing worked. I've decided to split the containers into 2
-separate ones. One will be mainly used to build the package(`builder`) and the
-other one is the one you will most likely run locally, and thus you need to
-build it by your own(`apps`).
+The easiest way to try out our code without pulling all the depdendencies is
+by running our docker container. For that you need to install `docker` and
+`docker-compose`.
 
 ## `builder` container
 
@@ -34,6 +31,10 @@ current user. This looks tricky and complicated but it's the easiest way to
 share data between the container and the host-machine without needing to run
 unnecessary long commands.
 
+Additionally an env variable called `$DATASETS` is also shared with the docker
+container in case you have your data already somewhere else and you don't want
+to duplicate it on the [data](../apps/data) directory.
+
 Your user information is encoded in the [.env](../.env) file. If your user id
 and group id are not `1000` (defaults in debian-based sytem) then you need to
 change this file.
@@ -46,11 +47,16 @@ docker-compose run --rm apps
 ```
 
 If the base image(`builder`) is not there it will pull it from the registry. If
-you can't access it, as said above, then you need to build it by hand. 
+you can't access it, as said above, then you need to build it by hand.
 
 Be aware that this will only build the `apps` container the very first time.
 **Only** if you need to re-build it then you need to run:
 
 ```sh
-docker-compose up --build apss
+docker-compose up --build apps
 ```
+
+This will build a docker container with all the pre-packaged dependencies. The
+`apps/` directory is shared between host and container, so there are 2 specific
+folder [data](./apps/data) and [results](./apps/results) in there where you can
+put your data and inspect the results (from both, host and container).

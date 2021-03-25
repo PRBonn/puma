@@ -1,32 +1,11 @@
 # Installation <!-- omit in toc -->
 
-- [Docker](#docker)
 - [Local Installation](#local-installation)
   - [Hard dependencies](#hard-dependencies)
   - [Open3D](#open3d)
   - [Embree](#embree)
   - [puma](#puma)
 - [Testing Installation](#testing-installation)
-- [Troubleshooting](#troubleshooting)
-
-## Docker
-
-The easiest way to try out our code without pulling all the depdendencies is
-by running our docker container. For that you need to install `docker` and
-`docker-compose`.
-
-```sh
-docker-compose build apps
-```
-
-This will build a docker container with all the pre-packaged dependencies. The
-`apps/` directory is shared between host and container, so there are 2 specific
-folder [data](./apps/data) and [results](./apps/results) in there where you can
-put your data and inspect the results (from both, host and container).
-
-Additionally an env variable called `$DATASETS` is also shared with the docker
-container in case you have your data already somewhere else and you don't want
-to duplicate it on the [data](./apps/data) directory.
 
 ## Local Installation
 
@@ -86,14 +65,6 @@ import puma
 ```
 
 If that doesn't fail then you can assume you've installed puma succesfully.
-
-## Troubleshooting
-
-If for any reason you wish to re-build the docker container just run:
-
-```sh
-docker-compose up --build builder
-```
 
 <!-- References -->
 
