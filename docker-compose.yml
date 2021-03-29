@@ -11,8 +11,8 @@ services:
       context: .
       dockerfile: docker/apps/Dockerfile
       args:
-        USER_ID: ${USER_ID:-0}
-        GROUP_ID: ${GROUP_ID:-0}
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     working_dir: /apps
     volumes:
       - ./apps/:/apps:rw

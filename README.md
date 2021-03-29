@@ -46,7 +46,7 @@ install [docker][docker] and [docker-compose][compose].
 If you **don't want to use docker** and install `puma` locally you might want
 to visit the [Installation Instructions](./INSTALL.md)
 
-### 1) Datasets
+### 1) Setting up the environment
 
 First, you need to indicate where are all your datasets, for doing so just:
 
@@ -60,6 +60,14 @@ system(in a read-only fashion).
 So far we've only tested our approach on the [KITTI Odometry
 benchmark][kitti] dataset and the [Mai city dataset][mai-city]. Both
 datasets are using a 64-beam Velodyne like LiDAR.
+
+Then you need to expose your `user id` and `group id` to have access to the
+artifacts of the pipelines:
+
+```sh
+export UID
+export GID
+```
 
 ### 2) Converting from `.bin` to `.ply`
 
