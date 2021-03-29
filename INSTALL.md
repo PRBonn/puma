@@ -33,12 +33,12 @@ bash 3rdparty/Open3D.sh
 ```
 
 That should give you the power of `Open3D` with the Generalized ICP algorithm
-implementation. If you can't install `Open3D` please reffer to the [original
+implementation. If you can't install `Open3D` please refer to the [original
 documentation](http://www.open3d.org/docs/release/compilation.html)
 
 ### Embree
 
-Just run the installation script provied by the author of `trimesh`:
+Just run the installation script provided by the author of `trimesh`:
 
 ```sh
 bash 3rdparty/embree.sh
@@ -48,7 +48,7 @@ That should give you the pyembree library
 
 ### puma
 
-There are different ways of intalling this package, probably the most easy is to
+There are different ways of installing this package, probably the easiest is to
 clone this source and just run
 
 ```shell
@@ -58,13 +58,13 @@ pip install --user .
 
 ## Testing Installation
 
-Just `cd` out of the source dir and run a interactive python shell:
+Just `cd` out of the source dir and run an interactive python shell:
 
 ```python
 import puma
 ```
 
-If that doesn't fail then you can assume you've installed puma succesfully.
+If that doesn't fail then you can assume you've installed puma successfully.
 
 <!-- References -->
 

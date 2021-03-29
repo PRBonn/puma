@@ -35,7 +35,7 @@ The main application of our research is intended for autonomous driving vehicles
 
 ## Running the code
 
-**NOTE:** All the commands assume you are working on this shared worksspace,
+**NOTE:** All the commands assume you are working on this shared workspace,
 therefore, first `cd apps/` before running anything.
 
 ### 0) Requirements
@@ -48,7 +48,7 @@ to visit the [Installation Instructions](./INSTALL.md)
 
 ### 1) Datasets
 
-First you need to indicate where are all your datasets, for doing so just:
+First, you need to indicate where are all your datasets, for doing so just:
 
 ```sh
 export DATASETS=<full-path-to-datasets-location>
@@ -58,8 +58,8 @@ This env variable is shared between the docker container and your host
 system(in a read-only fashion).
 
 So far we've only tested our approach on the [KITTI Odometry
-benchmark][kitti] dataset and on the [Mai city dataset][mai-city]. Both
-datasets are using a 64-beam velodyne like LiDAR.
+benchmark][kitti] dataset and the [Mai city dataset][mai-city]. Both
+datasets are using a 64-beam Velodyne like LiDAR.
 
 ### 2) Converting from `.bin` to `.ply`
 
@@ -76,12 +76,13 @@ docker-compose run --rm apps bash -c '\
     --sequence 07
     '
 ```
+
 Please change the `--dataset` option to point to where you have the KITTI
 dataset.
 
 ### 3) Runing the `puma` pipeline
 
-Go grab a coffe/mate, this will take some time...
+Go grab a coffee/mate, this will take some time...
 
 ```sh
 docker-compose run --rm apps bash -c '\
@@ -109,7 +110,7 @@ You can open the `.ply` with [Open3D][open3d], [Meshlab][meshlab],
 ## Where to go next
 
 If you already installed [puma](./INSTALL.md) then it's time to look for the
-[standalone apps](./apps/). Theese apps are basically executable command line
+[standalone apps](./apps/). These apps are executable command line
 interfaces (CLI) to interact with the core puma code:
 
 ```sh
