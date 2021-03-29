@@ -1,5 +1,4 @@
 Click
-GitPython
 PyYAML
 easydict
 matplotlib
