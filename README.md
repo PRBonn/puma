@@ -22,7 +22,7 @@ wrapper][pyembree] of the [Intel® Embree][embree] library.
 
 The main application of our research is intended for autonomous driving vehicles.
 
-## Table of Contentes <!-- omit in toc -->
+## Table of Contents <!-- omit in toc -->
 
 - [Running the code](#running-the-code)
   - [0) Requirements](#0-requirements)
