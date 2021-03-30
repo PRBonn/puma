@@ -30,7 +30,7 @@ The main application of our research is intended for autonomous driving vehicles
   - [Building the `apss` docker container](#building-the-apss-docker-container)
   - [Converting from `.bin` to `.ply`](#converting-from-bin-to-ply)
   - [Running the `puma` pipeline](#running-the-puma-pipeline)
-  - [4) Inspecting the results](#4-inspecting-the-results)
+  - [Inspecting the results](#inspecting-the-results)
 - [Where to go next](#where-to-go-next)
 - [Citation](#citation)
 
@@ -107,7 +107,7 @@ docker-compose run --rm apps bash -c '\
     '
 ```
 
-### 4) Inspecting the results
+### Inspecting the results
 
 The `pipelines/slam/puma_pipeline.py` will generate 3 files on your host sytem:
 
