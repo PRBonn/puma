@@ -1,8 +1,8 @@
 .PHONY: container check-env check-config
 .DEFAULT_GOAL:= container
 
-USER_ID:=$(shell id -u)
-GROUP_ID:=$(shell id -u)
+export USER_ID:=$(shell id -u)
+export GROUP_ID:=$(shell id -g)
 
 container: check-env check-config
 	@echo Building apps container with user_id=${USER_ID} group_id=${GROUP_ID}...
@@ -27,4 +27,5 @@ ifndef DATASETS
 else
 	@echo Mounting\(read-only \) ${DATASETS} to /data.
 	@echo Mounting\(read-write\) $(shell realpath apps/) to /apps/
+	@echo uid=${USER_ID}, gid=${GROUP_ID}.
 endif
