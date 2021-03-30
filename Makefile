@@ -27,5 +27,4 @@ ifndef DATASETS
 else
 	@echo Mounting\(read-only \) ${DATASETS} to /data.
 	@echo Mounting\(read-write\) $(shell realpath apps/) to /apps/
-	@echo uid=${USER_ID}, gid=${GROUP_ID}.
 endif
