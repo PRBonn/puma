@@ -7,12 +7,13 @@ services:
       dockerfile: docker/builder/Dockerfile
       target: builder
   apps:
+    image: ignaciovizzo/puma_apps:latest
     build:
       context: .
       dockerfile: docker/apps/Dockerfile
       args:
-        USER_ID: ${UID:-1000}
-        GROUP_ID: ${GID:-1000}
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
     working_dir: /apps
     volumes:
       - ./apps/:/apps:rw

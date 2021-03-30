@@ -25,10 +25,11 @@ The main application of our research is intended for autonomous driving vehicles
 ## Table of Contents <!-- omit in toc -->
 
 - [Running the code](#running-the-code)
-  - [0) Requirements](#0-requirements)
-  - [1) Datasets](#1-datasets)
-  - [2) Converting from `.bin` to `.ply`](#2-converting-from-bin-to-ply)
-  - [3) Runing the `puma` pipeline](#3-runing-the-puma-pipeline)
+  - [Requirements: Install docker](#requirements-install-docker)
+  - [Datasets](#datasets)
+  - [Building the `apss` docker container](#building-the-apss-docker-container)
+  - [Converting from `.bin` to `.ply`](#converting-from-bin-to-ply)
+  - [Running the `puma` pipeline](#running-the-puma-pipeline)
   - [4) Inspecting the results](#4-inspecting-the-results)
 - [Where to go next](#where-to-go-next)
 - [Citation](#citation)
@@ -38,7 +39,7 @@ The main application of our research is intended for autonomous driving vehicles
 **NOTE:** All the commands assume you are working on this shared workspace,
 therefore, first `cd apps/` before running anything.
 
-### 0) Requirements
+### Requirements: Install docker
 
 If you plan to use our [docker](docker/README.md) container you only need to
 install [docker][docker] and [docker-compose][compose].
@@ -46,7 +47,7 @@ install [docker][docker] and [docker-compose][compose].
 If you **don't want to use docker** and install `puma` locally you might want
 to visit the [Installation Instructions](./INSTALL.md)
 
-### 1) Setting up the environment
+### Datasets
 
 First, you need to indicate where are all your datasets, for doing so just:
 
@@ -61,15 +62,20 @@ So far we've only tested our approach on the [KITTI Odometry
 benchmark][kitti] dataset and the [Mai city dataset][mai-city]. Both
 datasets are using a 64-beam Velodyne like LiDAR.
 
-Then you need to expose your `user id` and `group id` to have access to the
-artifacts of the pipelines:
+### Building the `apss` docker container
+
+This container is in charge of running the [apss](./apps) and needs to be
+built with your user and group id (so you can share files). Building this
+container is straightforward thanks to the provided [Makefile](./Makefile):
 
 ```sh
-export UID
-export GID
+make
 ```
 
-### 2) Converting from `.bin` to `.ply`
+**If** you want' to inspect the image you can get an interactive shell by
+running `make run`, but it's not mandatory.
+
+### Converting from `.bin` to `.ply`
 
 All our apps use the [PLY][ply] which is also binary but has much
 better support than just raw binary files. Therefore, you will need to
@@ -88,7 +94,7 @@ docker-compose run --rm apps bash -c '\
 Please change the `--dataset` option to point to where you have the KITTI
 dataset.
 
-### 3) Runing the `puma` pipeline
+### Running the `puma` pipeline
 
 Go grab a coffee/mate, this will take some time...
 
