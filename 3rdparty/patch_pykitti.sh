@@ -3,7 +3,7 @@ set -ex
 
 # Obtain the location of the pykitti package
 pykitti_dir=$(
-python - <<-EOF
+python3 - <<-EOF
 
 import sys
 import traceback
